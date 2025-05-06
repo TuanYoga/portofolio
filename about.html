@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About - Ferrari Prayoga</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="browser-bar">
+          <div class="browser-controls">
+            <div class="control yellow"></div>
+            <div class="control green"></div>
+            <div class="control red"></div>
+          </div>
+
+          <div class="address-bar">
+            <span>Ferrari Prayoga Setiyawan</span>
+          </div>
+
+          <div class="window-controls">
+            <button class="window-btn" onclick="toggleWindow()">&darr;</button>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="about.html">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a href="projects.html">
+                <i class="fas fa-folder"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Konten Utama -->
+      <main class="content">
+        <div class="window">
+          <div class="card-header">
+            <div class="browser-controls">
+              <div class="control yellow"></div>
+              <div class="control green"></div>
+              <div class="control red"></div>
+            </div>
+            <div class="card-title">Tentang Saya</div>
+            <div class="window-controls">
+              <!-- <button class="window-btn">×</button> -->
+            </div>
+          </div>
+
+          <div class="window-content">
+            <section class="content-section">
+              <h2 class="section-title teal-bg">Perkenalan</h2>
+              <p>
+                Halo! Nama saya <strong>Ferrari Prayoga Setiyawan</strong>, seorang pelajar dari SMKN 11 Bandung jurusan Rekayasa Perangkat Lunak. 
+                Saya memiliki minat besar dalam dunia pengembangan website, terutama dalam menciptakan tampilan yang kreatif dan interaktif dengan nuansa retro-modern.
+              </p>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title yellow-bg">Pendidikan</h2>
+              <ul>
+                <li>SMKN 11 Bandung - Rekayasa Perangkat Lunak</li>
+                <li>Belajar Otodidak HTML, CSS, JavaScript, Laravel</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title pink-bg">Keterampilan</h2>
+              <ul class="skill-list">
+                <li><div class="bullet"></div>HTML & CSS</li>
+                <li><div class="bullet"></div>Laravel</li>
+                <li><div class="bullet"></div>Python</li>
+                <li><div class="bullet"></div>MySQL</li>
+                <li><div class="bullet"></div>UI/UX Design</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title teal-bg">Tujuan</h2>
+              <p>
+                Saya ingin menjadi seorang full-stack developer yang handal dan dapat menciptakan sistem informasi maupun aplikasi web yang berguna bagi masyarakat.
+                Saya juga ingin terus belajar teknologi baru dan berkontribusi dalam proyek open-source di masa depan.
+              </p>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Navigasi aktif
+      document.querySelectorAll(".nav-menu li").forEach((item) => {
+        item.addEventListener("click", function () {
+          document.querySelectorAll(".nav-menu li").forEach((i) => {
+            i.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

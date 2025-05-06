@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ferrari Prayoga Setiyawan</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Layout Utama -->
+  <div class="container">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="browser-bar">
+        <div class="browser-controls">
+          <div class="control yellow"></div>
+          <div class="control green"></div>
+          <div class="control red"></div>
+        </div>
+
+        <div class="address-bar">
+          <span>Ferrari Prayoga Setiyawan</span>
+        </div>
+
+        <div class="window-controls">
+          <!-- Menambahkan ID pada elemen jendela yang akan diminimalkan -->
+          <button class="window-btn" onclick="toggleWindow()">&darr;</button>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+          <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+          <li><a href="projects.html"><i class="fas fa-folder"></i><span>Projects</span></a></li>
+          <li class="active"><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Konten Utama dengan ID contactWindow untuk jendela yang dapat diminimalkan -->
+    <main class="content" id="contactWindow">
+      <section class="contact-section">
+        <h2 class="section-title teal-bg">Kontak</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-bullet teal-bg"></div>
+            <a href="https://mail.google.com/mail/?view=cm&to=ferrariprayoga6@gmail.com&su=Halo&body=Hai%20Ferrari%2C%20saya%20ingin%20menghubungi%20kamu." target="_blank" class="contact-link">
+              Kirim Pesan Via Gmail
+            </a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-bullet yellow-bg"></div>
+            <a href="https://wa.me/628986908167?text=Halo%20Ferrari%2C%20saya%20ingin%20menghubungi%20kamu." target="_blank" class="contact-link">
+              WhatsApp
+            </a>
+          </div>
+          <form id="commentForm" action="javascript:void(0);" method="post" style="margin-top: 20px;">
+            <label for="comment" style="display: block; font-weight: bold; color: teal; margin-bottom: 5px;">Pesan:</label>
+            <textarea id="comment" name="comment" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ccc;" required></textarea>
+            <button type="submit" class="submit-btn" style="margin-top: 10px;">Kirim Komentar</button>
+          </form>
+          
+          <script>
+            document.querySelector('#commentForm').addEventListener('submit', function() {
+              var message = document.querySelector('#comment').value;
+              if (message.trim() === '') {
+                alert('Pesan tidak boleh kosong!');
+                return;
+              }
+              var platform = prompt("Ke mana Anda ingin mengirim pesan? (Masukkan: 'WA' untuk WhatsApp, 'Gmail' untuk Gmail)");
+              
+              // Check the selected platform and generate the appropriate link
+              if (platform) {
+                platform = platform.toUpperCase();
+                var encodedMessage = encodeURIComponent(message);
+                switch (platform) {
+                  case 'WA':
+                    window.location.href = `https://wa.me/628986908167?text=${encodedMessage}`;
+                    break;
+                  case 'GMAIL':
+                    window.location.href = `mailto:ferrariprayoga6@gmail.com?subject=Pesan&body=${encodedMessage}`;
+                    break;
+                  default:
+                    alert("Platform tidak valid. Pilih antara WA atau Gmail.");
+                }
+              }
+            });
+          </script>
+          
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Fungsi untuk toggle minimize dan un-minimize window
+    function toggleWindow() {
+      const windowElement = document.getElementById('contactWindow'); // Pastikan elemen ini ada
+      if(windowElement) {
+        windowElement.classList.toggle('minimized');
+      }
+    }
+
+    // Navigasi aktif
+    document.querySelectorAll(".nav-menu li").forEach((item) => {
+      item.addEventListener("click", function () {
+        document.querySelectorAll(".nav-menu li").forEach((i) => {
+          i.classList.remove("active");
+        });
+        this.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

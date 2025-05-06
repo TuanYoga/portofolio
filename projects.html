@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Projects - Ferrari Prayoga</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      /* Menambahkan styling untuk judul */
+      .project-title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .project-title a {
+        color: #000; /* Teks warna hitam */
+        text-decoration: none; /* Menghilangkan garis bawah */
+      }
+
+      .project-card img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+      }
+
+      .project-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .project-card {
+        width: 300px;
+        margin: 10px;
+      }
+
+      /* Menambahkan hover effect untuk link judul */
+      .project-title a:hover {
+        color: #007bff; /* Warna biru ketika hover */
+        text-decoration: underline; /* Garis bawah saat hover */
+      }
+
+      /* Menambahkan styling untuk minimalisasi window */
+      .window.minimized {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="browser-bar">
+          <div class="browser-controls">
+            <div class="control yellow"></div>
+            <div class="control green"></div>
+            <div class="control red"></div>
+          </div>
+
+          <div class="address-bar">
+            <span>Ferrari Prayoga Setiyawan</span>
+          </div>
+
+          <div class="window-controls">
+            <button class="window-btn" onclick="toggleWindow()">&darr;</button>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="projects.html">
+                <i class="fas fa-folder"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Konten Utama -->
+      <main class="content">
+        <div class="window" id="projectWindow">
+          <div class="card-header">
+            <div class="browser-controls">
+              <div class="control yellow"></div>
+              <div class="control green"></div>
+              <div class="control red"></div>
+            </div>
+            <div class="card-title">Projek Saya</div>
+            <div class="window-controls">
+              <!-- <button class="window-btn" onclick="toggleWindow()">×</button> -->
+            </div>
+          </div>
+
+          <div class="window-content">
+            <section class="content-section">
+              <h2 class="section-title pink-bg">Projek</h2>
+
+              <div class="project-list">
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek1.com">Aplikasi PPDB Politeknik IDN</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Aplikasi PPDB Politeknik IDN" />
+                </div>
+              
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek2.com">Website Portofolio Retro</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Website Portofolio Retro" />
+                </div>
+              
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek3.com">Sistem Kasir Sederhana</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Sistem Kasir Sederhana" />
+                </div>
+              </div>
+
+              <!-- Menambah 3 proyek lagi di bawah -->
+              <div class="project-list">
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek4.com">Proyek Keempat</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Proyek Keempat" />
+                </div>
+              
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek5.com">Proyek Kelima</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Proyek Kelima" />
+                </div>
+              
+                <div class="project-card">
+                  <h3 class="project-title">
+                    <a href="https://link-ke-proyek6.com">Proyek Keenam</a>
+                  </h3>
+                  <img src="/projects/pulu.png" alt="Proyek Keenam" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Fungsi untuk toggle minimize dan un-minimize window
+      function toggleWindow() {
+        const windowElement = document.getElementById('projectWindow');
+        windowElement.classList.toggle('minimized');
+      }
+
+      // Navigasi aktif
+      document.querySelectorAll(".nav-menu li").forEach((item) => {
+        item.addEventListener("click", function () {
+          document.querySelectorAll(".nav-menu li").forEach((i) => {
+            i.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
